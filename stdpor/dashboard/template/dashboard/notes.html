@@ -1,0 +1,46 @@
+{% extends 'dashboard/base.html' %} 
+{% load static %}
+
+{% block content %}
+<style>
+    body{
+        background: rgb(2,0,36);
+background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(179,54,227,1) 0%, rgba(189,240,247,1) 0%, rgba(33,194,227,1) 99%, rgba(131,97,234,1) 100%); 
+    }
+</style>
+<div class="container">
+    <div class="row">
+        {% for i in notes %}
+        <div class="col-md-3">
+            <a href="{% url 'notesview' i.id%}">
+                <div class="card">
+                    <div class="card-header">{{i.title}}</div>
+                    <div class="card-body">{{i.des|slice:"0:100"}}</div>
+                    <div class="card-footer mt-auto "><a href="{% url 'dele' i.id %}">
+                        <i class="fa fa-trash fa-2x"></i></a>
+                    </div>
+                </div>
+            </a>
+        </div>
+{% endfor %}
+        <br><br>
+
+    </div>
+</div>
+<br><br>
+<div class="container">
+    <form method="POST">
+        {% csrf_token %}
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4">Create Notes</legend>
+        </fieldset>
+        {{form}}
+        <div class="form-group">
+            <button href="" class="btn btn-outline-info" type="submit">
+                Create
+            </button>
+        </div>
+    </form>
+</div>
+
+{% endblock content %}

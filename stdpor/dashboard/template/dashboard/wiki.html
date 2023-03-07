@@ -1,0 +1,38 @@
+{% extends 'dashboard/base.html' %} 
+{% load static %} 
+{% block content %}
+<style>
+    body{
+        background: rgb(2,0,36);
+background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(179,54,227,1) 0%, rgba(189,240,247,1) 0%, rgba(33,194,227,1) 99%, rgba(131,97,234,1) 100%); 
+    }
+</style>
+<section class='text-center container'>
+    <h1 style="font-weight: bold;">Wikipedia</h1>
+    
+    <form action="" method="post">
+        {% csrf_token %}
+        {{form}}
+        <input class="btn btn-danger" type="submit" value="Submit">
+    </form><br>
+
+    <div class="container" style="margin: 1rem;">
+        <div class="content-section p-0 mt-5">
+            <a href="" class="p-0 m-0" target="_blank">
+                <div class="custom-header">
+                    <h2>{{title}}</h2>
+                    <h6>{{link}}</h6>
+                </div>
+            </a>
+
+            <hr class="p-0 m-0">
+            <p class="description m-5 p-5">
+                {{details}}
+            </p>
+            <hr>
+        </div>
+    </div>
+
+</section>
+
+{% endblock content %}

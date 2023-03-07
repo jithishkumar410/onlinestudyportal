@@ -1,0 +1,31 @@
+{% extends 'dashboard/base.html' %} 
+{% load static %}
+{% block content %}
+
+<style>
+   body{
+    background: rgb(2,0,36);
+background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(179,54,227,1) 0%, rgba(201,127,250,1) 74%, rgba(131,97,234,1) 100%, rgba(0,212,255,1) 100%);
+
+  }
+</style>
+<div class="container">
+  <form method="POST">
+    <fieldset class="form-group">
+      {% csrf_token %}
+      <legend class="border-bottom mb-4">Log In</legend>
+      {{form}}
+    </fieldset>
+    <div class="form-group">
+      <button href="" class="btn btn-outline-info" type="submit">
+        Sign In
+      </button>
+    </div>
+  </form>
+  <div class="border-top pt-3">
+    <small class="text-muted">Need an Account?
+      <a class="ml-2" href="{% url 'register' %}">Create an Account</a>
+    </small>
+  </div>
+</div>
+{% endblock content %}

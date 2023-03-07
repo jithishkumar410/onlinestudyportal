@@ -1,0 +1,36 @@
+{% extends 'dashboard/base.html' %} 
+{% load static %} 
+{% block content %}
+<style>
+  form,.message{
+    margin: 4rem;
+
+  }
+  
+    body{
+        background: rgb(2,0,36);
+background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(179,54,227,1) 0%, rgba(189,240,247,1) 0%, rgba(33,194,227,1) 99%, rgba(131,97,234,1) 100%); 
+    }
+
+  form,h1{
+    display: flex;
+    justify-content: center;
+  }
+  h3,h1{
+    font-weight: bold;
+  }
+</style>
+<h1>Chatbot</h1>
+ 
+  <form method="POST" action="{% url 'chatbot' %}">
+    {% csrf_token %}
+    <input type="text" name="message" placeholder="Type your message here" autocomplete="off" />
+    <button type="submit">Send</button>
+  </form>
+ 
+    <div class="message">
+      <div class="user"><h3>Answer:</h3></div>
+      <div class="text"><h4>{{res}}</h4></div>
+    </div>
+  
+{% endblock content %}

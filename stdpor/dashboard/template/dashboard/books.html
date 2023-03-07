@@ -1,0 +1,70 @@
+{% extends 'dashboard/base.html' %} 
+{% load static %} 
+{% block content %}
+<style>
+    body{
+        background: rgb(2,0,36);
+background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(179,54,227,1) 0%, rgba(189,240,247,1) 0%, rgba(33,194,227,1) 99%, rgba(131,97,234,1) 100%); 
+    }
+</style>
+<section class='text-center container'>
+    <h2 style="font-weight: bolder;">Search Books from Google </h2>
+    <p>just enter the search query to obtain the results</p><b></b>
+    <form action="" method="post" style="font-weight: bolder;">
+        {% csrf_token %}
+        {{form}}
+        <input class="btn btn-danger" type="submit" value="Submit">
+    </form><br>
+{% for i in results %}
+    <a href="{{i.pre}}" target="_blank">
+        <div class="card">
+            <div class="card-header">
+                <div class="row">
+                    <div class="col-md-3">
+                        <img class="img-fluid" src="{{i.thum}}" alt="">
+
+                    </div>
+                    <div class="col-md-9">
+                        <h3 class="p-0 m-0">{{i.title}}</h3>
+                        <b>
+                            <u>
+                                <h5 class="p-0 m-0">{{i.subtitle}}</h5>
+                            </u>
+                        </b>
+                        {% if i.des %}
+                        <h6 class="p-0 m-1">{{i.des}}</h6>
+                        {% endif %}
+                        {% if i.categories %}
+                        <b> 
+                            <h6 class="ml-0 mt-3">Category
+                                {% for j in i.categories   %}
+                                {{j}}
+                                {% endfor %}
+                            </h6>
+                            {% endif %}
+                            {% if i.count %}
+                            <h6 class="ml-0 mt-1">Pages:{{i.count}}</h6>
+                             
+                             
+                                
+        
+                            {% endif %}
+                            {% if i.rate %}
+                            <h6 class="ml-0 mt-1">Rating
+                                {% for j in i.rate   %}
+                                {{j}}
+                                {% endfor %}
+                            </h6>
+                        </b>
+                        {% endif %}
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+    {%endfor%}
+    <br>
+</section>
+
+{% endblock content %}

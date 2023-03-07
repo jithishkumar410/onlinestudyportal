@@ -1,0 +1,32 @@
+{% extends 'dashboard/base.html' %} 
+{% load static %} 
+{% block content %}
+<style>
+body{
+    background: rgb(2,0,36);
+background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(179,54,227,1) 0%, rgba(201,127,250,1) 74%, rgba(131,97,234,1) 100%, rgba(0,212,255,1) 100%);
+
+  }
+</style>
+<section class='text-center container'>
+
+    <div class="container">
+
+        <div class="content-section p-0 mt-5">
+
+            <div class="m-3">
+                <h2>{{notes.title}}</h2>
+            </div>
+
+            <hr class="p-0 m-0">
+            <p class="description m-5 p-5">
+                {{notes.des}}
+            </p>
+            <hr>
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock content %}

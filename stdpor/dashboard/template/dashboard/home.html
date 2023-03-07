@@ -1,0 +1,143 @@
+{% extends 'dashboard/base.html' %} 
+{% load static %} 
+{% block content %}
+
+<style>
+  .row{
+    margin-bottom: 2rem;
+  }
+  body{
+    background: rgb(2,0,36);
+background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(179,54,227,1) 0%, rgba(201,127,250,1) 74%, rgba(131,97,234,1) 100%, rgba(0,212,255,1) 100%);
+
+  }
+  .card{
+    border-radius: 10px;
+    
+  }
+  .col-md-3{
+    padding: 1.75rem;
+  }
+</style>
+
+<section class="container text-center">
+  <h2 style="font-weight: bolder;">Welcome to Online study portal</h2>
+  <hr> 
+  <div class="row">
+  <div class="col-md-3">
+    <a href="{% url 'chatbot' %}">
+      <div class="card">
+        <img class="card-img-top" src="{% static 'images\chatbot-herbie.jpg' %}" alt="Notes image">
+        <div class="card-body">
+          <h5 class="card-title ">
+            Chat Bot
+          </h5>
+          AI chat bot for ask any doubts and solve it
+        </div>
+      </div>
+    </a>
+  </div>
+
+  
+ 
+    <div class="col-md-3">
+      <a href="{% url 'notes' %}">
+        <div class="card">
+          <img class="card-img-top" src="{% static 'images/notes1.jpg' %}" alt="Notes image">
+          <div class="card-body">
+            <h5 class="card-title ">
+              Notes
+            </h5>
+            Create Notes to refer them later. They are stored permanently until deleted
+          </div>
+        </div>
+      </a>
+    </div>
+    
+
+    <div class="col-md-3">
+      <a href="{% url 'wiki' %}">
+        <div class="card">
+          <img class="card-img-top" src="{% static 'images/wikipedia.webp' %}" alt="Notes image">
+          <div class="card-body">
+            <h5 class="card-title ">
+              WikiPedia
+            </h5>
+            Homework and Assignments? Search wikipedia to get fast results
+          </div>
+        </div>
+      </a>
+    </div>
+
+    
+    
+    <div class="col-md-3">
+      <a href="{% url 'youtube' %}">
+        <div class="card">
+          <img class="card-img-top" src="{% static 'images\New-YouTube-logo.jpg' %}" alt="Notes image">
+          <div class="card-body">
+            <h5 class="card-title ">
+              Youtube
+            </h5>
+            Search in Youtube and learn things from youtube videos
+          </div>
+        </div>
+      </a>
+    </div>
+   <br><br><br>
+   <hr>
+    <div class="row" style="margin-top: 3rem;">
+    <div class="col-md-3">
+      <a href="{% url 'todo' %}">
+        <div class="card">
+          <img class="card-img-top" src="{% static 'images/todo.webp' %}" alt="Notes image">
+          <div class="card-body">
+            <h5 class="card-title ">
+              To Do
+            </h5>
+            Add your to-do lists for your day and remove them as you finish
+          </div>
+        </div>
+      </a>
+    </div>
+  
+  
+  
+  
+    <div class="col-md-3 ">
+      <a href="{% url 'books' %}">
+        <div class="card mt-20">
+          <img class="card-img-top" src="{% static 'images/books.png' %}" alt="Notes image">
+          <div class="card-body">
+            <h5 class="card-title ">
+              Books
+            </h5>
+            Browse books from a list of neatly organised book menu
+          </div>
+        </div>
+      </a>
+    </div>
+
+
+
+    <div class="col-md-3">
+      <a href="{% url 'diction' %}">
+        <div class="card">
+          <img class="card-img-top" src="{% static 'images/dictionary2.jpg' %}" alt="Notes image">
+          <div class="card-body">
+            <h5 class="card-title ">
+              Dictionary
+            </h5>
+            A vocabulary from a book is troubling you? No problem, enter the word, and the meaning will be displayed
+            almost instantaneously.
+          </div>
+        </div>
+      </a>
+    </div>
+   
+
+    
+
+
+</section>
+{% endblock content %}

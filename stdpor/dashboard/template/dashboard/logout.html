@@ -1,0 +1,19 @@
+{% extends 'dashboard/base.html' %} 
+{% load static %}
+
+{% block content %}
+<style>
+   body{
+    background: rgb(2,0,36);
+background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(179,54,227,1) 0%, rgba(201,127,250,1) 74%, rgba(131,97,234,1) 100%, rgba(0,212,255,1) 100%);
+
+  }
+</style>
+<div class="border-top pt-3 text-center">
+  <h2>You are logged Out</h2>
+
+  <small class="text-muted"
+    ><a class="btn btn-danger" href="{% url 'login' %}">Log In Again</a>
+  </small>
+</div>
+{% endblock content %}
